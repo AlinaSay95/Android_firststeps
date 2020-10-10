@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnClear, bntPlusMinus, btnPlus, btnMinus, btnMultiplication, btnDiviation, btnDot, btnEqual;
 
     TextView tvresult;
+    TextView tvequation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnDot = findViewById(R.id.btnDot);
         btnEqual = findViewById(R.id.btnEqual);
         tvresult = findViewById(R.id.Result_Field);
+        tvequation = findViewById(R.id.Equation_Field);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +170,18 @@ public class MainActivity extends AppCompatActivity {
                     val = val.substring(0, val.length() - 1);
                     tvresult.setText(val);
                 }
+            }
+        });
+
+        btnEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String val = tvresult.getText().toString();
+                Evaluate ev = new Evaluate();
+                double result = ev.eval(val);
+                String r = String.valueOf(result);
+                tvresult.setText(r);
+                tvequation.setText(val);
             }
         });
     }

@@ -1,0 +1,3 @@
+include ':Evaluate'
+include ':app'
+rootProject.name = "EvalLib"
