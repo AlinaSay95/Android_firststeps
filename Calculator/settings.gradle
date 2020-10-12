@@ -1,2 +1,4 @@
+include ':Evaluate2'
+include ':app2'
 include ':app'
 rootProject.name = "Calculator"
